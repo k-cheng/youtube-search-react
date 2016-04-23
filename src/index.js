@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
 
-import App from './components/app';
-import reducers from './reducers';
+import SearchBar from './components/search_bar'; // need to include actual path for js files we write
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const API_KEY = 'AIzaSyDw3PS2mKse5HrbKdilcGpInX0JS3wiOJo'; // lets us make requests to youtube
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+// new component
+const App = () => {
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
+}
+
+
+// puts the component's generated HTML and puts it on the page
+
+ReactDOM.render(<App />, document.querySelector('.container'))
